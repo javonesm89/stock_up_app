@@ -1,0 +1,1 @@
+Stock.create(name:"Tesla",symbol:"TSLA",stock_price:405.80)

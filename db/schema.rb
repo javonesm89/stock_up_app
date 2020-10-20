@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_20_194142) do
+ActiveRecord::Schema.define(version: 2020_10_20_195337) do
 
   create_table "investors", force: :cascade do |t|
     t.string "username"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2020_10_20_194142) do
   create_table "orders", force: :cascade do |t|
     t.string "order_name"
     t.integer "num_of_shares"
+    t.integer "stock_id"
+    t.integer "investor_id"
   end
 
   create_table "stocks", force: :cascade do |t|
