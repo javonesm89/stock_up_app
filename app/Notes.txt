@@ -1,0 +1,22 @@
+Investor table
+- username
+- password digest
+- account balance
+
+rake db:create_migration NAME=create_investors
+
+Stock table
+- name
+- symbol 
+- price
+
+rake db:create_migration NAME=create_stocks
+
+Order table 
+- order name
+- number of shares
+- stock id
+- investor id
+
+rake db:create_migration NAME=create_orders
+
