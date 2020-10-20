@@ -1,0 +1,8 @@
+<section>
+    <form action='/orders' method="POST">
+        <% @stock.each do |stock| %>
+            <input type="checkbox" value="<%= stock.id %>" name="investor[order_id][]"><%= stock.name %><br>
+        <% end %>
+        <button type="submit">Create Order</button>
+    </form>
+</section>

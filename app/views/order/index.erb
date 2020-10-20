@@ -1,0 +1,7 @@
+<section>
+    <h3>My Orders:</h3>
+    <% @orders.each do |order| %>
+        <a href="/orders/<%= order.id %>"> <%= order.order_name %> </a>
+    <% end %>
+</section>
+

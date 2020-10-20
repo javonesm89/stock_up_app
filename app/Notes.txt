@@ -8,7 +8,7 @@ rake db:create_migration NAME=create_investors
 Stock table
 - name
 - symbol 
-- price
+- price --> float not integer
 
 rake db:create_migration NAME=create_stocks
 

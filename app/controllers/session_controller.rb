@@ -6,7 +6,7 @@ class SessionController < AppController
     post '/signup' do
         if params[:password] != '' && params[:username] != ''
             investor = Investor.create(params)
-            session[:username] = investor.username
+            # session[:username] = investor.username
             redirect to '/login'
         else
             redirect to 'signup'
@@ -22,7 +22,7 @@ class SessionController < AppController
         investor = Investor.find_by(username: params[:username])
         if investor && investor.authenticate(params[:user_pass])
             session[:investor_id] = investor.id
-            redirect to '/investor/:id'
+            redirect to '/account'
         else
             redirect to '/login'
         end

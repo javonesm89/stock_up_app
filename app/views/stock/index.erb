@@ -1,0 +1,5 @@
+<section>
+    <% @stocks.each do |stock| %>
+        <a href="/stocks/<%= stock.id %>"> <%= stock.name %> - <%= stock.symbol %> </a><br>
+    <% end %>
+</section>
