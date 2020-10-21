@@ -1,7 +1,10 @@
 <section>
     <h3>My Orders:</h3>
     <% @orders.each do |order| %>
-        <a href="/orders/<%= order.id %>"> <%= order.order_name %> </a>
+        <a href="/orders/<%= order.id %>"> <%= order.order_name %> </a><br>
+        <a href='/orders/<%= order.id %>/edit'>Edit</a>
     <% end %>
+
 </section>
+    <a href='/orders/new'>Create Order</a>
 

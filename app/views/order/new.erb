@@ -1,8 +1,16 @@
 <section>
+    <h3>Add a name to your order so it'll be easier to remember what stocks are there.</h3>
+    
     <form action='/orders' method="POST">
-        <% @stock.each do |stock| %>
-            <input type="checkbox" value="<%= stock.id %>" name="investor[order_id][]"><%= stock.name %><br>
+            <label for="order_name">Order name:</label>
+            <input type="text" name="order_name"><br>
+        <% @stocks.each do |stock| %>
+            <input type="radio" value="<%= stock.id %>" name="stock_id"><%= stock.name %><br>
         <% end %>
+        <label for="num_of_shares">Shares:</label>
+        <input type="number" name="num_of_shares" min="1" max="50"><br>
+        
         <button type="submit">Create Order</button>
     </form>
+
 </section>
