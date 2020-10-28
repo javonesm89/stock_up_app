@@ -1,7 +1,25 @@
 <section>
+
+    <h3>Select the shares you'd like to SELL from your order.</h3>
+    <h3>Keep in mind, once an order is executed in the real world you officially own a piece of that company.</h3>
+    <h3>You now have the chance to sell your shares. They can be sold for a profit or a loss dependind on two things:</h3>
+    <ul>
+        <li>The price you bought the share(s) at</li>
+        <li>The price you're selling your share(s) at</li>
+    </ul>
+    
     <form action="/orders/<%= @order.id %>" method="POST">
         <input id="hidden" type="hidden" name="_method" value="patch">
-        <input type="number" value="<%= @order.num_of_shares %>" name="num_of_shares" min="1" max="50">
+
+        <label for="num_of_shares"><%= @order.order_name %>:</label>
+        <% @order.stocks.each do |stock| %>
+            <input type="checkbox" value="<%= stock.id %>" name="order[stock_ids][]" min="1" max="50" id="order[stock_ids]"><%= stock.name %><br>
+        <% end %>
+        
         <button type="submit">Edit Order</button>
+    
     </form>
+
+    
+
 </section>

@@ -1,6 +1,6 @@
 class StockController < AppController
     get '/stocks' do
-        @stocks = Stock.all
+        @stocks = Stock.collect_stocks
         erb :'stock/index'
     end
 

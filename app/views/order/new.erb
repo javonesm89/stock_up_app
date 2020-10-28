@@ -1,16 +1,18 @@
 <section>
-    <h3>Add a name to your order so it'll be easier to remember what stocks are there.</h3>
+    <h3>Select the stock you'd like buy.</h3>
     
     <form action='/orders' method="POST">
-            <label for="order_name">Order name:</label>
-            <input type="text" name="order_name"><br>
+
+       
         <% @stocks.each do |stock| %>
-            <input type="radio" value="<%= stock.id %>" name="stock_id"><%= stock.name %><br>
+                 <input type="radio" value="<%= stock.id %>" name="stock_id"><%= stock.name %><br>
         <% end %>
-        <label for="num_of_shares">Shares:</label>
-        <input type="number" name="num_of_shares" min="1" max="50"><br>
-        
+
+        <h4>Next, select how many shares you want:</h4>
+        <input type="number" name="num_of_shares" min="1" max="50">
+    
         <button type="submit">Create Order</button>
     </form>
 
 </section>
+

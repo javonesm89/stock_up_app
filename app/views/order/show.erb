@@ -1,8 +1,24 @@
 <section>
-    Stock: <%= @stock.name %><br>
-    Number of shares: <%= @order.num_of_shares %>
 
-    <a href='/account'>Account</a>
+    <table style="width:50%">
+        <tr>
+            <th>Name: </th>
+            <th>Symbol:</th>
+            <th>Price: </th>
 
-    <a href='/orders/new'>Create Order</a><br>
+    <% @order.stocks.each do |stock| %>
+            <tr>
+                <td> <%= stock.name %> </td>
+                <td> <%= stock.symbol %> </td>
+                <td> <%= stock.price %></td>
+            </tr>
+    <% end %>
+        </tr>
+    </table>
 </section>
+
+<a href='/account'>Account</a>
+
+<a href='/orders'>Orders</a>
+
+<a href='/orders/<%= @order.id %>/edit' >Edit Order</a>

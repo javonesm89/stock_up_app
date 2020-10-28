@@ -5,14 +5,13 @@ class OrderController < AppController
     end
 
     post '/orders' do
-        order = Order.new(params)
-        order.investor_id = session[:investor_id]
-        order.save
-        redirect to '/account'
+        order = Order.new()
+        order.add_stocks(params)
+        redirect to "/orders/#{order.id}"
     end
     
     get '/orders/new' do
-        @stocks = Stock.all
+        @stocks = Stock.collect_stocks
         erb :'/order/new'
     end
     
@@ -23,12 +22,14 @@ class OrderController < AppController
     
     get '/orders/:id' do
         # make into find_by method too much DRY
+        # create module for ClassMethods --> find method
         @order = Order.find_by_id(params[:id])
-        @stock = Stock.find_by_id(@order.stock_id)
         erb :'/order/show'
     end
 
     patch '/orders/:id' do
-        raise params.inspect
+        @order = Order.find_by_id(params[:id])
+        @order.update_order(params)
+        redirect to "/orders/#{@order.id}"
     end
 end

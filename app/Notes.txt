@@ -2,21 +2,54 @@ Investor table
 - username
 - password digest
 - account balance
+- timestamp
 
 rake db:create_migration NAME=create_investors
+
+create_table :investors do |g|
+    g.string :username
+    g.string :password_digest
+    g.integer :account_balance
+    g.timestamps
+end
 
 Stock table
 - name
 - symbol 
 - price --> float not integer
+- stock_order_id
+- stock_order_type
+- timestamp
 
 rake db:create_migration NAME=create_stocks
+
+create_table :stocks do |g|
+    g.string :name
+    g.string :symbol
+    g.integer :price
+    g.integer :stock_order_id
+    g.string :stock_order_type
+    g.timestamps
+end
 
 Order table 
 - order name
 - number of shares
-- stock id
 - investor id
+- timestamp
 
 rake db:create_migration NAME=create_orders
 
+create_table :orders do |g|
+    g.string :order_name
+    g.integer :investor_id
+    g.timestamps
+end
+
+get table up
+create user
+create order with stock_order ~ stocks
+capture multiple of that stock
+use number to create that many stock_order for that order
+
+<input type="radio" value="<%= stock.id %>" name="stock_id"><%= stock.name %><br>
