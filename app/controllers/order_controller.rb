@@ -1,7 +1,12 @@
 class OrderController < AppController
     get '/orders' do
-        @orders = Order.all
-        binding.pry
+        @orders = []
+        Order.all.each do |order| 
+            if order.investor_id == session["investor_id"]
+                @orders << order
+            end
+        end
+        @orders
         erb :'/order/index'
     end
 

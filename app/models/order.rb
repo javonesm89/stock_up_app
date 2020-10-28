@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
     belongs_to :investor
     has_many :stocks, as: :stock_order
-
+    
     def order_total
         total_price = 0
         self.stocks.each do |stock|
