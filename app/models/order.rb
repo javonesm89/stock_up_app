@@ -2,20 +2,13 @@ class Order < ActiveRecord::Base
     belongs_to :investor
     has_many :stocks, as: :stock_order
 
-    
-    # def self.locate_order(params)
-    #     @order = Order.find_by_id(params[:id])
-    #     @order
-    # end
-    
-    
     def order_total
         total_price = 0
         self.stocks.each do |stock|
             total_price += stock.price
         end
         total_price
-        binding.pry
+        # binding.pry
     end
     
     def add_stocks(params)
@@ -25,7 +18,7 @@ class Order < ActiveRecord::Base
         shares.times do
             self.stocks <<  Stock.new(name: stock.name, symbol: stock.symbol, price:stock.price)
         end
-        self.investor_id = self.id
+        binding.pry
         self.save
         self
     end

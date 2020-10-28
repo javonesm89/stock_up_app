@@ -1,11 +1,13 @@
 class OrderController < AppController
     get '/orders' do
         @orders = Order.all
+        binding.pry
         erb :'/order/index'
     end
 
     post '/orders' do
         order = Order.new()
+        order.investor_id = session["investor_id"]
         order.add_stocks(params)
         redirect to "/orders/#{order.id}"
     end
@@ -24,6 +26,7 @@ class OrderController < AppController
         # make into find_by method too much DRY
         # create module for ClassMethods --> find method
         @order = Order.find_by_id(params[:id])
+        # binding.pry
         erb :'/order/show'
     end
 

@@ -7,7 +7,12 @@ class Investor < ActiveRecord::Base
     # After an investor has been create, run this method
     after_initialize :init
 
-    def init(account_balance=1500)
+    def init(account_balance=2000)
         self.account_balance = account_balance
+    end
+
+    def adjust_account_balance
+        self.account_balance
+        # binding.pry
     end
 end

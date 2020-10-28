@@ -1,20 +1,7 @@
 <section>
-
-    <table style="width:50%">
-        <tr>
-            <th>Name: </th>
-            <th>Symbol:</th>
-            <th>Price: </th>
-
-    <% @order.stocks.each do |stock| %>
-            <tr>
-                <td> <%= stock.name %> </td>
-                <td> <%= stock.symbol %> </td>
-                <td> <%= stock.price %></td>
-            </tr>
-    <% end %>
-        </tr>
-    </table>
+    <h4> Order Name: <%= @order.order_name %> </h4>
+    <h4> Shares: <%= @order.stocks.count %> </h4>
+    <h4> Shares Amount: $<%= @order.order_total %> </h4>
 </section>
 
 <a href='/account'>Account</a>
