@@ -31,7 +31,6 @@ class OrderController < AppController
         # make into find_by method too much DRY
         # create module for ClassMethods --> find method
         @order = Order.find_by_id(params[:id])
-        # binding.pry
         erb :'/order/show'
     end
 

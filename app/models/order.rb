@@ -18,7 +18,7 @@ class Order < ActiveRecord::Base
         shares.times do
             self.stocks <<  Stock.new(name: stock.name, symbol: stock.symbol, price:stock.price)
         end
-        binding.pry
+        # binding.pry
         self.save
         self
     end

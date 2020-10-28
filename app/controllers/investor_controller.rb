@@ -2,9 +2,14 @@
 
 class InvestorController < AppController
 
+    get '/welcome' do
+        @investor = Investor.find_by_id(session[:investor_id])
+        erb :'investor/welcome'
+    end
+    
     get '/account' do
         @investor = Investor.find_by_id(session[:investor_id])
-        @investor.adjust_account_balance
+        @investor.deduct_from_account_balance
         erb :'/investor/account'
     end
 

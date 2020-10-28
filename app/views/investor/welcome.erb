@@ -1,0 +1,20 @@
+<h3>Welcome, <%= @investor.username %>!</h3>
+
+<section>
+    
+    <p>To get you right into action we had a special person, Elon Musk, gift you $<%= @investor.account_balance %>. - We don't know why he did this.</p>
+
+    <p>I'd recommend first to check out some stocks and get familiar with them. 
+    
+    <p>Notice the stock ticker (i.e, NIKE = NKE) as well as the stock price! If you can buy a share or 2, great.</p>
+
+    <p>Remember to do some outside research and see if this is a stock YOU want to own.</p>
+
+    <a href='/stocks'>Stocks</a>
+
+    <p>If you know what stocks you want then I'd recommend heading over to your account and placing an order. Each order will contain 1 stock but you can order any number of shares for that stock as long as it fits your budget.</p>
+
+    <p>Your account balance will reflect any orders (whether a sell or buy) and adjust accordingly.</p>
+
+    <a href='/account'>Account</a>
+</section>

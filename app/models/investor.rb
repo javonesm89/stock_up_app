@@ -11,8 +11,8 @@ class Investor < ActiveRecord::Base
         self.account_balance = account_balance
     end
 
-    def adjust_account_balance
-        self.account_balance
-        # binding.pry
+    def deduct_from_account_balance
+         self.account_balance -= self.orders.last.order_total
+         self.account_balance
     end
 end
