@@ -9,7 +9,6 @@ class InvestorController < AppController
     
     get '/account' do
         @investor = Investor.find_by_id(session[:investor_id])
-        @investor.deduct_from_account_balance
         erb :'/investor/account'
     end
 

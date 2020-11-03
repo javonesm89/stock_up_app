@@ -11,8 +11,8 @@ class Investor < ActiveRecord::Base
         self.account_balance = account_balance
     end
 
-    def deduct_from_account_balance
-         self.account_balance -= self.orders.last.order_total
-         self.account_balance
+    def new_balance
+        self.account_balance -= self.orders.last.order_total 
+        money_balance.round(2)
     end
 end

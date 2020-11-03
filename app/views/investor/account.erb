@@ -1,7 +1,12 @@
 <h2>Hey, <%= @investor.username %>!</h3>
 
 <section>
-    <h3> Account Balance: $<%= @investor.deduct_from_account_balance %> </h4>
+    <h3> Account Balance: <% if  @investor.orders.last != nil %>
+                            <%= @investor.new_balance %> 
+                          <% else %>
+                            <%= @investor.account_balance %>
+                          <% end%>
+    </h3>
     
     <h4> Orders: </h4>
     <% @investor.orders.each do |order| %>

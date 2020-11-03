@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_28_174133) do
+ActiveRecord::Schema.define(version: 2020_11_03_190820) do
 
   create_table "investors", force: :cascade do |t|
     t.string "username"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_10_28_174133) do
   create_table "stocks", force: :cascade do |t|
     t.string "name"
     t.string "symbol"
-    t.integer "price"
+    t.float "price"
     t.integer "stock_order_id"
     t.string "stock_order_type"
     t.datetime "created_at", null: false

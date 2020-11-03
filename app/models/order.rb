@@ -8,7 +8,6 @@ class Order < ActiveRecord::Base
             total_price += stock.price
         end
         total_price
-        # binding.pry
     end
     
     def add_stocks(params)
@@ -18,7 +17,6 @@ class Order < ActiveRecord::Base
         shares.times do
             self.stocks <<  Stock.new(name: stock.name, symbol: stock.symbol, price:stock.price)
         end
-        # binding.pry
         self.save
         self
     end
