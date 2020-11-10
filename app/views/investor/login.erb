@@ -1,11 +1,32 @@
-<h3>Start Trading!</h3>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stock Up - Login</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h4 class="display-4 text-center">Start trading!</h4>
+            <hr class="my-4">
+            <div class="text-center">
+                <form action='/login' method="POST">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username">
 
-<form action='/login' method="POST">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username">
-
-    <label for="user_pass">Password:</label>
-    <input type="password" name="user_pass" id="user_pass">
+                    <label for="user_pass">Password:</label>
+                    <input type="password" name="user_pass" id="user_pass">
     
-    <button type="submit">Login</button>
-</form>
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+        
+
+        <footer>
+            For informational and learning purposes only. 
+            All the information being provided is artbitrary.
+            Stock prices are real time data. 
+        </footer>
+    </body>
+</html>

@@ -53,3 +53,8 @@ capture multiple of that stock
 use number to create that many stock_order for that order
 
 <input type="radio" value="<%= stock.id %>" name="stock_id"><%= stock.name %><br>
+
+  width: 50%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;

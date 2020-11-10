@@ -12,7 +12,11 @@ class Investor < ActiveRecord::Base
     end
 
     def new_balance
-        self.account_balance -= self.orders.last.order_total 
-        money_balance.round(2)
+        bag = []
+        self.orders.each do |order|
+            bag << order.order_total
+        end
+        self.account_balance -= bag.sum
+        self.account_balance
     end
 end

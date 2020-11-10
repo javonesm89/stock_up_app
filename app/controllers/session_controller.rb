@@ -22,7 +22,7 @@ class SessionController < AppController
         investor = Investor.find_by(username: params[:username])
         if investor && investor.authenticate(params[:user_pass])
             session[:investor_id] = investor.id
-            redirect to '/account'
+            redirect to '/welcome'
         else
             redirect to '/login'
         end

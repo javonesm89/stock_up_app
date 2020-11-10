@@ -1,9 +1,19 @@
-<section>
-    <p>Stock: <%= @stock.name %></p>
-    <p>Stock: <%= @stock.symbol %></p>
-    <p>Stock price: <%= @stock.price %></p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="card" style="width: 15rem;">
+            <div class="card-body">
+                <h4 class="card-title"><%= @stock.name %> </h4>
+                <h5 class="card-subtitle"><%= @stock.symbol %> </h5>
+                <p class="card-text">Share price: <%= @stock.price %> </p>
+                <a href="/account" class="btn btn-secondary">Account</a>
+                <a href="/stocks" class="btn btn-info">Stocks</a>
+            </div>
+        </div>
+    </body>
+</html>
 
-    <a href='/orders/new'>Create Order</a>
-    <br>
-    <a href='/account'>Account</a>
-</section>

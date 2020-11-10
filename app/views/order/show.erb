@@ -1,9 +1,16 @@
 <section>
     <h4> Order Name: <%= @order.order_name %> </h4>
     <h4> Shares: <%= @order.stocks.count %> </h4>
-    <h4> Shares Amount: $<%= @order.order_total %> </h4>
+    <h4> Shares Amount: $<%= @order.order_total.round(2) %> </h4>
 </section>
 
-<a href='/account'>Account</a><br>
 
-<a href='/orders/<%= @order.id %>/edit' >Edit Order</a>
+    <a href='/account'>Account</a><br>
+
+    <a href='/orders/<%= @order.id %>/edit' >Edit Order</a>
+
+
+    <form action="/orders/<%= @order.id %>" method='POST'>
+        <input type="hidden" name="_method" value="DELETE">
+        <button type='submit'>Delete</button>
+    </form>

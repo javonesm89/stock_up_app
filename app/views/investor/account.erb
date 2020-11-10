@@ -1,17 +1,33 @@
-<h2>Hey, <%= @investor.username %>!</h3>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Account</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+      <div class="jumbotron">
+        <h4 class="display-3 text-center">Hey, <%= @investor.username %>!</h4>
 
-<section>
-    <h3> Account Balance: <% if  @investor.orders.last != nil %>
-                            <%= @investor.new_balance %> 
-                          <% else %>
-                            <%= @investor.account_balance %>
-                          <% end%>
-    </h3>
+        <section>
+          <h3> Account Balance: 
+            <% if  @investor.orders.last != nil %>
+              $<%= @investor.new_balance %> 
+            <% else %>
+              $<%= @investor.account_balance %>
+            <% end%>
+          </h3>
     
-    <h4> Orders: </h4>
-    <% @investor.orders.each do |order| %>
-        <a href="/orders/<%= order.id %>"> <%= order.order_name %></a><br>
-    <% end %>
-    <p><a href='/orders/new'>New Order</a></p>
-    <p><a href='/stocks'>Stocks</a></p>
+      <h4 class="text-center"> Orders: </h4>
+        <% @investor.orders.each do |order| %>
+          <a href="/orders/<%= order.id %>"> <%= order.order_name %></a><br>
+        <% end %>
+      
+      <button type="button" class="btn btn-success"><a href='/orders/new'>New Order</a></button>
+
+      <button type="button" class="btn btn-info"><a href='/stocks'>Stocks</a></button>
+
+    </div>
 </section>
+
+    </body>
+</html>
