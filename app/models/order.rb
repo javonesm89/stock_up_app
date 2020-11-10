@@ -11,6 +11,7 @@ class Order < ActiveRecord::Base
     end
     
     def add_stocks(params)
+        binding.pry
         stock = Stock.all.find_by_id(params["stock_id"])
         self["order_name"] = stock.name
         shares = params["num_of_shares"].to_i

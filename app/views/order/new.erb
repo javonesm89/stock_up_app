@@ -1,18 +1,36 @@
-<section>
-    <h3>Select the stock you'd like buy.</h3>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Order - New</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <section>
+            <h3>Select the stock you'd like buy.</h3>
     
-    <form action='/orders' method="POST">
+            <form action='/orders' method="POST">
 
        
-        <% @stocks.each do |stock| %>
-                 <input type="radio" value="<%= stock.id %>" name="stock_id"><%= stock.name %><br>
-        <% end %>
+                <% @stocks.each do |stock| %>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="stock_id" value="<%= stock.id %>" checked>
+                        <label class="form-check-label"><%= stock.name %></label>
+                    </div>
+                <% end %>
 
-        <h4>Next, select how many shares you want:</h4>
-        <input type="number" name="num_of_shares" min="1" max="50">
+                <h4>Next, select how many shares you want:</h4>
+                <input type="number" name="num_of_shares" min="1" max="50">
     
-        <button type="submit">Create Order</button>
-    </form>
+                <button class=" btn btn-primary" type="submit">Create Order</button>
+            </form>
 
 </section>
+
+    </body>
+</html>
+
+
+
+
+
 

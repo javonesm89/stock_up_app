@@ -1,16 +1,35 @@
-<section>
-    <h4> Order Name: <%= @order.order_name %> </h4>
-    <h4> Shares: <%= @order.stocks.count %> </h4>
-    <h4> Shares Amount: $<%= @order.order_total.round(2) %> </h4>
-</section>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="text-center">
+            <h3> Order Name: <%= @order.order_name %> </h3>
+            <h4> Shares: <%= @order.stocks.count %> </h4>
+            <h5> Shares Amount: $<%= @order.order_total.round(2) %> </h5>
+        </div>
+
+        <div class="text-center">
+            <button class="btn"><a href='/account'>Account</a></button>
+            <button class="btn"><a href='/orders/<%= @order.id %>/edit' >Edit Order</a></button>
+        </div>
 
 
-    <a href='/account'>Account</a><br>
+        <form action="/orders/<%= @order.id %>" method='POST'>
+            <div class="text-center">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="btn btn-warning" type='submit'>Delete</button>
+            </div>
+        </form>
 
-    <a href='/orders/<%= @order.id %>/edit' >Edit Order</a>
+    </body>
+</html>
 
 
-    <form action="/orders/<%= @order.id %>" method='POST'>
-        <input type="hidden" name="_method" value="DELETE">
-        <button type='submit'>Delete</button>
-    </form>
+
+
+
+
+

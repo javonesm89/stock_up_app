@@ -18,7 +18,6 @@ class OrderController < AppController
     end
     
     get '/orders/new' do
-        binding.pry
         @stocks = Stock.collect_stocks
         erb :'/order/new'
     end
@@ -32,7 +31,7 @@ class OrderController < AppController
         # make into find_by method too much DRY
         # create module for ClassMethods --> find method
         @order = Order.find_by_id(params[:id])
-        erb :'/order/show2'
+        erb :'/order/show'
     end
 
     patch '/orders/:id' do
