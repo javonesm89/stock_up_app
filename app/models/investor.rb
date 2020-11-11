@@ -15,8 +15,8 @@ class Investor < ActiveRecord::Base
         bag = []
         self.orders.each do |order|
             bag << order.order_total
-        end
-        self.account_balance -= bag.sum
-        self.account_balance
+                self.account_balance -= bag.sum
+            end
+            self.account_balance
     end
 end

@@ -15,6 +15,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'shotgun'
 gem 'require_all'
+gem 'rack-flash3'
 
 group :development do
     gem "tux"

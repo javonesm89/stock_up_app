@@ -1,25 +1,38 @@
-<section>
 
-    <h3>Select the shares you'd like to SELL from your order.</h3>
-    <h3>Keep in mind, once an order is executed in the real world you officially own a piece of that company.</h3>
-    <h3>You now have the chance to sell your shares. They can be sold for a profit or a loss dependind on two things:</h3>
-    <ul>
-        <li>The price you bought the share(s) at</li>
-        <li>The price you're selling your share(s) at</li>
-    </ul>
-    
-    <form action="/orders/<%= @order.id %>" method="POST">
-        <input id="hidden" type="hidden" name="_method" value="patch">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="text-center">
+            <h3>Select the shares you'd like to SELL from your order.</h3>
+            <h4>Keep in mind, once an order is executed in the real world you officially own a piece of that company.</h4>
+            <h5>You now have the chance to sell your shares. They can be sold for a profit or a loss dependind on two things:</h5>
 
-        <label for="num_of_shares"><%= @order.order_name %>:</label>
-        <% @order.stocks.each do |stock| %>
-            <input type="checkbox" value="<%= stock.id %>" name="order[stock_ids][]" min="1" max="50" id="order[stock_ids]"><%= stock.name %><br>
-        <% end %>
-        
-        <button type="submit">Edit Order</button>
-    
-    </form>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">The price you bought the share(s) at</li>
+                <li class="list-group-item">The price you're selling your share(s) at</li>
+            </ul>
 
-    
+        </div>
 
-</section>
+            <h3><span class="badge badge-secondary"><%= @order.order_name %></span></h3><br>
+            
+            <form action="/orders/<%= @order.id %>" method="POST">
+                <div class="form-check form-check-inline">
+                    <input id="hidden" type="hidden" name="_method" value="patch">
+                        <% @order.stocks.each do |stock| %>
+                            <input class="form-check-input" type="checkbox" value="<%= stock.id %>" name="order[stock_ids][]" min="1" max="50" id="order[stock_ids]"><%= stock.name %>
+                            <label class="form-check-label" for="order[stock_ids]">
+                        <% end %>
+                </div>
+                <button class="btn btn-warning" type="submit">Sell share(s)</button>
+            </form><br>
+    </body>
+</html>
+
+
+
+

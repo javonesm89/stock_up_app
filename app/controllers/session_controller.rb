@@ -1,12 +1,15 @@
 class SessionController < AppController
+    enable :sessions
+
     get '/signup' do
         erb :'/investor/signup'
     end
 
     post '/signup' do
+        flash[:notice] = "Successfully created an account!"
         if params[:password] != '' && params[:username] != ''
             investor = Investor.create(params)
-            # session[:username] = investor.username
+            flash[:notice]
             redirect to '/login'
         else
             redirect to 'signup'

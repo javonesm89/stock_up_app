@@ -11,15 +11,14 @@ class Order < ActiveRecord::Base
     end
     
     def add_stocks(params)
-        binding.pry
         stock = Stock.all.find_by_id(params["stock_id"])
         self["order_name"] = stock.name
         shares = params["num_of_shares"].to_i
         shares.times do
             self.stocks <<  Stock.new(name: stock.name, symbol: stock.symbol, price:stock.price)
         end
+        self.investor.account_balance -= self.order_total
         self.save
-        self
     end
     
     

@@ -11,10 +11,16 @@ class OrderController < AppController
     end
 
     post '/orders' do
-        order = Order.new()
-        order.investor_id = session["investor_id"]
-        order.add_stocks(params)
-        redirect to "/orders/#{order.id}"
+        flash[:notice] = "Successfully created an order!"
+        if params["num_of_shares"] == ''
+            redirect to 'orders/new'
+        else
+            order = Order.new()
+            order.investor_id = session["investor_id"]
+            order.add_stocks(params)
+            flash[:notice]
+            redirect to "/orders/#{order.id}"
+        end
     end
     
     get '/orders/new' do
@@ -33,11 +39,18 @@ class OrderController < AppController
         @order = Order.find_by_id(params[:id])
         erb :'/order/show'
     end
-
+    
     patch '/orders/:id' do
         @order = Order.find_by_id(params[:id])
         @order.update_order(params)
-        redirect to "/orders/#{@order.id}"
+        if @order.stocks.size != 0
+            redirect to "/orders/#{@order.id}"
+        else
+            flash[:delete] = "Order has 0 shares and was therefore deleted!"
+            @order.destroy
+            redirect to '/orders'
+        end
+            
     end
 
     delete '/orders/:id' do

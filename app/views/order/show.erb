@@ -6,24 +6,24 @@
     </head>
     <body>
         <div class="text-center">
+        <% if flash.has?(:notice) %>
+            <div class="text-center">
+                <h6><%= flash[:notice] %></h6>
+            </div>
+        <% end %>
             <h3> Order Name: <%= @order.order_name %> </h3>
             <h4> Shares: <%= @order.stocks.count %> </h4>
             <h5> Shares Amount: $<%= @order.order_total.round(2) %> </h5>
         </div>
 
         <div class="text-center">
-            <button class="btn"><a href='/account'>Account</a></button>
-            <button class="btn"><a href='/orders/<%= @order.id %>/edit' >Edit Order</a></button>
+            <button class="btn"><a href='/orders/<%= @order.id %>/edit'>Sell shares</a></button>
+            <form method="post" action="/orders/<%= @order.id %>">
+  			    <input id="hidden" type="hidden" name="_method" value="DELETE">
+                <button class="btn btn-warning" type="submit">Delete order</button><br>
+		    </form>
+            <button class="btn btn-dark"><a href='/account'>Account</a></button>
         </div>
-
-
-        <form action="/orders/<%= @order.id %>" method='POST'>
-            <div class="text-center">
-                <input type="hidden" name="_method" value="DELETE">
-                <button class="btn btn-warning" type='submit'>Delete</button>
-            </div>
-        </form>
-
     </body>
 </html>
 

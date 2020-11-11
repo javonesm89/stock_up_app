@@ -1,7 +1,11 @@
+require 'sinatra/base'
+require 'rack-flash'
+
 class AppController < Sinatra::Base
     
     configure do
         enable :sessions
+        use Rack::Flash
         set :session_secret, "diwali"
 
         set :views, 'app/views'

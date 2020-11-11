@@ -1,9 +1,29 @@
-<section>
-    <h3>My Orders:</h3>
-    <% @orders.each do |order| %>
-        <a href="/orders/<%= order.id %>"> <%= order.order_name %><br>
-    <% end %>
-</section>
-    <p><a href='/orders/new'>Create Order</a></p>
-    <p><a href='/account'>Account</a></p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+    <div class="text-center">
+        <h3>My Orders:</h3>
+            <% @orders.each do |order| %>
+            <div class="container">
+                <h5 class="card-title"><a href="/orders/<%= order.id %>"> <%= order.order_name %></h5>
+               </div>
+            <% end %>
+
+    <button type="button" class="btn btn-secondary"><a class="text-light" href='/account'>Account</a></button>
+    <button type="button" class="btn btn-secondary"><a class="text-light" href='/orders/new'>New order</a></button>
+
+    </div>
+
+
+    </body>
+</html>
+
+
+
+
+
 
