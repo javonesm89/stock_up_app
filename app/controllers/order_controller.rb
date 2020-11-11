@@ -14,13 +14,12 @@ class OrderController < AppController
         flash[:notice] = "Successfully created an order!"
         if params["num_of_shares"] == ''
             redirect to 'orders/new'
-        else
-            order = Order.new()
-            order.investor_id = session["investor_id"]
-            order.add_stocks(params)
-            flash[:notice]
-            redirect to "/orders/#{order.id}"
         end
+        order = Order.new()
+        order.investor_id = session["investor_id"]
+        order.add_stocks(params)
+        flash[:notice]
+        redirect to "/orders/#{order.id}"
     end
     
     get '/orders/new' do
@@ -38,6 +37,11 @@ class OrderController < AppController
         # create module for ClassMethods --> find method
         @order = Order.find_by_id(params[:id])
         erb :'/order/show'
+    end
+    
+    get '/orders/fail' do 
+        flash[:warning] = "Unable to complete order. Insufficient funds!"
+        erb :'/orders/fail'
     end
     
     patch '/orders/:id' do

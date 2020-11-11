@@ -58,3 +58,10 @@ use number to create that many stock_order for that order
   max-width: 330px;
   padding: 15px;
   margin: auto;
+
+
+    <% if flash.has?(:notice) %>
+                      <div class="text-center">
+                        <h6><%= flash[:notice] %></h6>
+                      </div>
+                    <% end %

@@ -8,8 +8,14 @@ class InvestorController < AppController
     end
     
     get '/account' do
+        flash[:error] = "Unable to complete order. Insufficient funds!"
         @investor = Investor.find_by_id(session[:investor_id])
-        erb :'/investor/account'
+        if @investor.account_balance >= @investor.new_balance
+            erb :'/investor/account'
+        else
+            @investor
+            erb :'/order/fail'
+        end
     end
 
 end
