@@ -1,1 +1,2 @@
-seeds.rb
+# Ignore databases
+*.db
