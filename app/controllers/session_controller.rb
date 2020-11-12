@@ -6,10 +6,8 @@ class SessionController < AppController
     end
 
     post '/signup' do
-        flash[:notice] = "Successfully created an account!"
         if params[:password] != '' && params[:username] != ''
             investor = Investor.create(params)
-            flash[:notice]
             redirect to '/login'
         else
             redirect to 'signup'
@@ -18,6 +16,7 @@ class SessionController < AppController
     
     get '/login' do
         @session
+        flash[:notice] = "Successfully created an account!"
         erb :'/investor/login'
     end
     

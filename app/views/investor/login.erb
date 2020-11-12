@@ -7,9 +7,9 @@
     </head>
     <body>
         <div class="jumbotron">
-        <% if flash.has?(:notice) %>
+            <h5><% if flash.has?(:notice) %>
             <%= flash[:notice] %>
-        <% end %>
+            <% end %></h5>
             <h4 class="display-4 text-center">Start trading!</h4>
             <hr class="my-4">
             <div class="text-center">
