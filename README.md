@@ -1,11 +1,5 @@
-# Stock_up
- An educational web application built with Sinatra to help learn about and buy/sell stocks
+Stock_up
 
-Languages and Libraries
-Ruby
-Sinatra
-Rack
-HTTParty
-Activerecord
+Stock up is an informational and/or educational application built for learning about, managing, selling, and buying shares of stocks.
 
 Contribution Pull requests are more than welcome. For major changes, please open an issue first to discuss what you would like to change.
